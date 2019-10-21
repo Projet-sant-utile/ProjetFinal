@@ -1,5 +1,6 @@
 package com.inti.formation.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,21 +22,30 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Person {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // Table_Per_Class Strategy : enables to implement each class independently of each other
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+public abstract class Person implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	// Encapsulation of attibutes: private to protected 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	private int idPerson;
-	private String name;
-	private String firstname;
+	protected int idPerson;
+	// @Column(nullable = false)
+	protected String name;
+	// @Column(nullable = false)
+	protected String firstname;
 	@Column(columnDefinition = "DATE")
-	private LocalDate birthday;
+	protected LocalDate birthday;
 	
 	@Embedded
-	private Address address;
-	private String phoneNumber;
-	private String email;
-	private String password;
+	protected Address address;
+	protected String phoneNumber;
+	protected String email;
+	protected String password;
 
 }

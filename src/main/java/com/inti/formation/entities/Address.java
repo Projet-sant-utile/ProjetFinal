@@ -2,6 +2,8 @@ package com.inti.formation.entities;
 
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Address {
 
 	private String streetNumber;
