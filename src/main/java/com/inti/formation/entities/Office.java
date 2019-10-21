@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -28,8 +29,9 @@ public class Office extends Location implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_office; 
-	
-	private List<HealthProfessional> healthProfessionals; 
-	
+	private int id_office;
+
+	@ManyToMany(mappedBy = "offices")
+	private List<HealthProfessional> healthProfessionals;
+
 }

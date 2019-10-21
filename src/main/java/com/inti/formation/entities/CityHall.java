@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -18,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class CityHall implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -26,11 +27,10 @@ public class CityHall implements Serializable {
 
 	@Id
 	private int id_cityHall;
-	
+
 	@Embedded
-	private Address adresse; 
-	
+	private Address adresse;
+	@OneToOne
 	private Local local;
-	
 
 }

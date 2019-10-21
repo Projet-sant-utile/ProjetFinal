@@ -2,12 +2,12 @@ package com.inti.formation.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -30,14 +30,16 @@ public class Appointment implements Serializable {
 	@Id
 	private int id_appointment;
 
-	private List<Patient> patients = new ArrayList<Patient>();
-
-	private List<HealthProfessional> healthProfessionals = new ArrayList<HealthProfessional>();
+	@ManyToOne
+	@JoinColumn(name = "id_patient")
+	private Patient patient;
+	@ManyToOne
+	@JoinColumn(name = "id_health_professional")
+	private HealthProfessional healthProfessional;
 
 	// Lieu ?
 
 	@Column(columnDefinition = "DATE")
 	private LocalDate appointmentDate;
-
 
 }

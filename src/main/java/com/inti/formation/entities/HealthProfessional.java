@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -25,13 +27,16 @@ public class HealthProfessional extends Person implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String speciality; 
-	
+	private String speciality;
+
 	@Column(columnDefinition = "DATE")
-	private LocalDate availabilities; 
-	
+	private LocalDate availabilities;
+
 	private Office office;
-	
-	private List <Local> locals; 
+	@ManyToMany(mappedBy = "healthProfessionals")
+	private List<Local> locals;
+
+	@OneToMany(mappedBy = "healthProfessional")
+	private List<Appointment> appointments;
 
 }

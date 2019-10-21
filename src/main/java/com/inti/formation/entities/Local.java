@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,7 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Local extends Location implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -30,13 +32,15 @@ public class Local extends Location implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_local; 
-	
-	private CityHall cityHall; 
-	
+	private int id_local;
+
+	@OneToOne
+	private CityHall cityHall;
+
 	@Column(columnDefinition = "DATE")
-	private LocalDate availabilities; 
-	
+	private LocalDate availabilities;
+
+	@ManyToMany(mappedBy = "locals")
 	private List<HealthProfessional> healthProfessionnals;
 
 }
