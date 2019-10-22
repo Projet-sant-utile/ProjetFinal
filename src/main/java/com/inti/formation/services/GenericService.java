@@ -6,10 +6,12 @@ import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
 import com.inti.formation.iServices.IGenericService;
 import com.inti.interfaces.IHasId;
 
+@Service
 public abstract class GenericService<G extends IHasId<I>, I> implements IGenericService<G, I> {
 	
 	protected JpaRepository<G, I> genericRepository;

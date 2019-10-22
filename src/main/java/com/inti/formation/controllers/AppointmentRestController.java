@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.inti.formation.entities.Appointment;
 import com.inti.formation.iServices.IGenericService;
+import com.inti.formation.services.AppointmentService;
+import com.inti.formation.services.GenericService;
 
 @RestController
 @RequestMapping("/apiAppointment")
@@ -20,7 +22,7 @@ import com.inti.formation.iServices.IGenericService;
 public class AppointmentRestController {
 	
 	@Autowired
-	private IGenericService<Appointment, Integer> service;
+	private AppointmentService service;
 	
 	@PostMapping("/add")
 	public Appointment add(@RequestBody Appointment p) {

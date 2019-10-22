@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.inti.formation.entities.Local;
 import com.inti.formation.iServices.IGenericService;
+import com.inti.formation.services.LocalService;
 
 @RestController
 @RequestMapping("/apiLocal")
@@ -20,7 +21,7 @@ import com.inti.formation.iServices.IGenericService;
 public class LocalRestController {
 	
 	@Autowired
-	private IGenericService<Local, Integer> service;
+	private LocalService service;
 	
 	@PostMapping("/add")
 	public Local add(@RequestBody Local p) {

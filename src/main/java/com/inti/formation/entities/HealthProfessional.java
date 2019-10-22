@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.inti.interfaces.IHasId;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class HealthProfessional extends Person implements Serializable {
+public class HealthProfessional extends Person  implements IHasId<Integer> {
 
 	/**
 	 * 
@@ -44,5 +45,17 @@ public class HealthProfessional extends Person implements Serializable {
 
 	@OneToMany(mappedBy = "healthProfessional")
 	private List<Appointment> appointments;
+
+	@Override
+	public Integer getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setId(Integer i) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

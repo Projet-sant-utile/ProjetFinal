@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.inti.formation.entities.Patient;
 import com.inti.formation.iServices.IPatientService;
+import com.inti.formation.services.PatientService;
 
 @RestController
 @RequestMapping("/apiPatient")
@@ -20,7 +21,7 @@ import com.inti.formation.iServices.IPatientService;
 public class PatientRestController {
 	
 	@Autowired
-	private IPatientService service;
+	private PatientService service;
 	
 	@PostMapping("/add")
 	public Patient add(@RequestBody Patient p) {

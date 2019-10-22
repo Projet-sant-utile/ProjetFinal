@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.inti.formation.entities.CityHall;
 import com.inti.formation.iServices.IGenericService;
+import com.inti.formation.services.CityHallService;
 
 @RestController
 @RequestMapping("/apiCityHall")
@@ -20,7 +21,7 @@ import com.inti.formation.iServices.IGenericService;
 public class CityHallRestController {
 	
 	@Autowired
-	private IGenericService<CityHall, Integer> service;
+	private CityHallService service;
 	
 	@PostMapping("/add")
 	public CityHall add(@RequestBody CityHall p) {

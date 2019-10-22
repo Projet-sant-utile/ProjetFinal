@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.inti.formation.entities.HealthProfessional;
 import com.inti.formation.iServices.IGenericService;
+import com.inti.formation.services.HealthProfessionalService;
 
 @RestController
 @RequestMapping("/apiHealthProfessional")
@@ -20,7 +21,7 @@ import com.inti.formation.iServices.IGenericService;
 public class HealthProfessionalRestController {
 	
 	@Autowired
-	private IGenericService<HealthProfessional, Integer> service;
+	private HealthProfessionalService service;
 	
 	@PostMapping("/add")
 	public HealthProfessional add(@RequestBody HealthProfessional p) {

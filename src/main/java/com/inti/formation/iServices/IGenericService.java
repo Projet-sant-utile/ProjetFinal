@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.springframework.stereotype.Service;
+
 public interface IGenericService<G, I> {
 	
 	public G add(G g);

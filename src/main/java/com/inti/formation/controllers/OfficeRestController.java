@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.inti.formation.entities.Office;
 import com.inti.formation.iServices.IGenericService;
+import com.inti.formation.services.OfficeService;
 
 @RestController
 @RequestMapping("/apiOffice")
@@ -20,7 +21,7 @@ import com.inti.formation.iServices.IGenericService;
 public class OfficeRestController {
 	
 	@Autowired
-	private IGenericService<Office, Integer> service;
+	private OfficeService service;
 	
 	@PostMapping("/add")
 	public Office add(@RequestBody Office p) {
