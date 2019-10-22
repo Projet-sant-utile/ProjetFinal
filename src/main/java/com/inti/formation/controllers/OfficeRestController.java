@@ -17,7 +17,7 @@ import com.inti.formation.iServices.IGenericService;
 @RestController
 @RequestMapping("/apiOffice")
 @CrossOrigin("*")
-public class OfficeController {
+public class OfficeRestController {
 	
 	@Autowired
 	private IGenericService<Office, Integer> service;
