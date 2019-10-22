@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Patient extends Person  implements IHasId<Integer> {
+public class Patient extends User {
 	/**
 	* 
 	*/
@@ -30,12 +30,13 @@ public class Patient extends Person  implements IHasId<Integer> {
 	@Override
 	public Integer getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.getIdUser();
 	}
 
 	@Override
 	public void setId(Integer i) {
 		// TODO Auto-generated method stub
+		this.setIdUser(i);
 		
 	}
 

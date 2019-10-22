@@ -33,13 +33,13 @@ public class Office extends Location  implements IHasId<Integer> {
 	@Override
 	public Integer getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.getIdLocation();
 	}
 
 	@Override
 	public void setId(Integer i) {
 		// TODO Auto-generated method stub
-		
+		this.setIdLocation(i);
 	}
 
 }

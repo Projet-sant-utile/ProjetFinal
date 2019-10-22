@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.inti.interfaces.IHasId;
 
@@ -32,23 +33,26 @@ public class Appointment  implements IHasId<Integer> {
 	private int idAppointment;
 
 	@ManyToOne
-	@JoinColumn(name = "id_person") // referencedColumnName is optional
+	@JoinColumn(name = "idUser") // referencedColumnName is optional
 	private Patient patient;
 	@ManyToOne
-	@JoinColumn(name = "id_healthProfessional")
+	@JoinColumn(name = "idHealthProfessional")
 	private HealthProfessional healthProfessional;
 
 	@Temporal(TemporalType.DATE)
 	private Date appointmentDate;
 	private int hourStart;
+	
+	@JsonIgnore
 	@Override
 	public Integer getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.getIdAppointment();
 	}
 	@Override
 	public void setId(Integer i) {
 		// TODO Auto-generated method stub
+		this.setIdAppointment(i);
 		
 	}
 

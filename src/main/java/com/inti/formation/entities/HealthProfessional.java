@@ -1,6 +1,5 @@
 package com.inti.formation.entities;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Embedded;
@@ -12,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.inti.interfaces.IHasId;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class HealthProfessional extends Person  implements IHasId<Integer> {
+public class HealthProfessional extends User {
 
 	/**
 	 * 
@@ -49,13 +47,13 @@ public class HealthProfessional extends Person  implements IHasId<Integer> {
 	@Override
 	public Integer getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.getIdUser();
 	}
 
 	@Override
 	public void setId(Integer i) {
 		// TODO Auto-generated method stub
-		
+		this.setIdUser(i);
 	}
 
 }
