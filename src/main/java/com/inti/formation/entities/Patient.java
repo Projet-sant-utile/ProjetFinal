@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.inti.interfaces.IHasId;
 
@@ -27,16 +28,16 @@ public class Patient extends Person  implements IHasId<Integer> {
 	@OneToMany(mappedBy = "patient")
 	private List<Appointment> appointments;
 
+	@JsonIgnore
 	@Override
 	public Integer getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.getIdPerson();
 	}
 
 	@Override
 	public void setId(Integer i) {
-		// TODO Auto-generated method stub
-		
+		this.setIdPerson(i);
 	}
 
 }
