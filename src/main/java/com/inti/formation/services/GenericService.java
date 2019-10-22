@@ -7,18 +7,19 @@ import javax.persistence.EntityNotFoundException;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.inti.formation.iServices.IGenericService;
+import com.inti.formation.iservices.IGenericService;
+import com.inti.interfaces.IHasId;
 
-public abstract class GenericService <G, I> implements IGenericService<G, I> {
-
+public abstract class GenericService<G extends IHasId<I>, I> implements IGenericService<G, I>
+{
 	protected JpaRepository<G, I> genericRepository;
-	
+
 	@Override
 	public G add(G g)
 		throws EntityExistsException
 	{
-		boolean personExists = genericRepository.existsById(g.getById());
-		if ( personExists )
+		boolean userExists = genericRepository.existsById(g.getId());
+		if ( userExists )
 			throw new EntityExistsException();
 		return genericRepository.save(g);
 	}
@@ -59,5 +60,4 @@ public abstract class GenericService <G, I> implements IGenericService<G, I> {
 		return genericRepository.findAll();
 	}
 
-	
 }
