@@ -27,7 +27,7 @@ public class CityHall implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id_cityHall;
+	private int idCityHall;
 
 	@Embedded
 	private Address adresse;

@@ -22,14 +22,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Appointment implements Serializable {
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id_appointment;
+	private int idAppointment;
 
 	@ManyToOne
 	@JoinColumn(name = "id_person") // referencedColumnName is optional
