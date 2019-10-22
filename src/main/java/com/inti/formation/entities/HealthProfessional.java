@@ -1,12 +1,14 @@
 package com.inti.formation.entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -29,11 +31,15 @@ public class HealthProfessional extends Person implements Serializable {
 
 	private String speciality;
 
-	@Column(columnDefinition = "DATE")
-	private LocalDate availabilities;
+	@Embedded
+	private Availability availability;
 
+	@ManyToOne
+	@JoinColumn(name = " idLocation", referencedColumnName = "idLocation")
 	private Office office;
-	@ManyToMany(mappedBy = "healthProfessionals")
+
+	@ManyToMany
+	@JoinTable(name = "healthProfessional_local", joinColumns = @JoinColumn(name = "idHealthProfessional"), inverseJoinColumns = @JoinColumn(name = "idLocation"))
 	private List<Local> locals;
 
 	@OneToMany(mappedBy = "healthProfessional")

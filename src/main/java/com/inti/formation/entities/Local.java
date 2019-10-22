@@ -1,14 +1,11 @@
 package com.inti.formation.entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
@@ -23,6 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+@DiscriminatorValue("Local")
 public class Local extends Location implements Serializable {
 
 	/**
@@ -30,15 +28,11 @@ public class Local extends Location implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_local;
-
-	@OneToOne
+	@OneToOne(mappedBy = "local")
 	private CityHall cityHall;
 
-	@Column(columnDefinition = "DATE")
-	private LocalDate availabilities;
+	@Embedded
+	private Availability availability;
 
 	@ManyToMany(mappedBy = "locals")
 	private List<HealthProfessional> healthProfessionnals;

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -31,6 +32,7 @@ public class CityHall implements Serializable {
 	@Embedded
 	private Address adresse;
 	@OneToOne
+	@JoinColumn(name = "id_local", unique = true)
 	private Local local;
 
 }
