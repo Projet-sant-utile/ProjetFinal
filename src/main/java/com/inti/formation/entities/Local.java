@@ -37,4 +37,5 @@ public class Local extends Location implements Serializable {
 	@ManyToMany(mappedBy = "locals")
 	private List<HealthProfessional> healthProfessionnals;
 
+
 }
