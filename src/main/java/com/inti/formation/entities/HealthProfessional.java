@@ -10,6 +10,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -44,6 +45,7 @@ public class HealthProfessional extends User {
 	@OneToMany(mappedBy = "healthProfessional")
 	private List<Appointment> appointments;
 
+	@JsonIgnore
 	@Override
 	public Integer getId() {
 		// TODO Auto-generated method stub

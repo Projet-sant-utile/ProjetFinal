@@ -7,6 +7,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.inti.interfaces.IHasId;
 
@@ -30,6 +31,7 @@ public class Office extends Location  implements IHasId<Integer> {
 	@OneToMany(mappedBy = "office")
 	private List<HealthProfessional> healthProfessionals;
 
+	@JsonIgnore
 	@Override
 	public Integer getId() {
 		// TODO Auto-generated method stub
