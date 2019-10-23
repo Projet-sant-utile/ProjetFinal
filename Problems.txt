@@ -1,0 +1,7 @@
+Problems:
+
+-City Hall have birthday, firstname and lastname. We should delete this from user and add only username. Add the other
+attributes to Patient and HealthProfessional.
+-City Hall can take a Office as an ID, it don't have a constraint to take only ID of Local.
+-Office have a starting and a closing hours.
+-Appointment don't have an ID for the locations.
