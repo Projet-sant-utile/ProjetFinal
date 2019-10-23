@@ -15,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.inti.interfaces.IHasId;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +28,7 @@ import lombok.NoArgsConstructor;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // Table_Per_Class Strategy : enables to implement each class
 															// independently of each other
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public abstract class Person implements Serializable {
+public abstract class User implements IHasId<Integer> {
 
 	/**
 	 * 
@@ -37,7 +38,7 @@ public abstract class Person implements Serializable {
 	// Encapsulation of attibutes: private to protected
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	protected int idPerson;
+	protected int idUser;
 	@Column(nullable = false)
 	protected String name;
 	@Column(nullable = false)
