@@ -24,7 +24,7 @@ public class CityHall extends User {
 	private static final long serialVersionUID = 1L;
 	
 	@OneToOne
-	@JoinColumn(name = "idLocal", unique = true)
+	@JoinColumn(name = "idLocation", unique = true)
 	private Local local;
 
 	@JsonIgnore
