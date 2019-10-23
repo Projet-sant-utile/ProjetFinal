@@ -22,7 +22,7 @@ public class CityHall extends User {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@OneToOne
 	@JoinColumn(name = "idLocal", unique = true)
 	private Local local;
@@ -30,13 +30,11 @@ public class CityHall extends User {
 	@JsonIgnore
 	@Override
 	public Integer getId() {
-		// TODO Auto-generated method stub
 		return this.getIdUser();
 	}
 
 	@Override
 	public void setId(Integer i) {
-		// TODO Auto-generated method stub
 		this.setIdUser(i);
 	}
 

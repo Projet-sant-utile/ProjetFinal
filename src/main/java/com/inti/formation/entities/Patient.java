@@ -1,14 +1,17 @@
 package com.inti.formation.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.inti.interfaces.IHasId;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,19 +28,26 @@ public class Patient extends User {
 	*/
 	private static final long serialVersionUID = 1L;
 
+	@Column(nullable = false)
+	private String name;
+	
+	@Column(nullable = false)
+	private String firstname;
+
+	@Temporal(TemporalType.DATE)
+	private Date birthday;
+	
 	@OneToMany(mappedBy = "patient")
 	private List<Appointment> appointments;
 
 	@JsonIgnore
 	@Override
 	public Integer getId() {
-		// TODO Auto-generated method stub
 		return this.getIdUser();
 	}
 
 	@Override
 	public void setId(Integer i) {
-		// TODO Auto-generated method stub
 		this.setIdUser(i);
 		
 	}

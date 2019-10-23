@@ -1,8 +1,5 @@
 package com.inti.formation.entities;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -11,8 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.inti.interfaces.IHasId;
@@ -39,18 +34,15 @@ public abstract class User implements IHasId<Integer> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	protected int idUser;
-	@Column(nullable = false)
-	protected String name;
-	@Column(nullable = false)
-	protected String firstname;
-
-	@Temporal(TemporalType.DATE)
-	protected Date birthday;
-
+	
 	@Embedded
 	protected Address address;
+	
 	protected String phoneNumber;
+	
+	@Column(nullable = false)
 	protected String email;
+	
 	protected String password;
 
 }

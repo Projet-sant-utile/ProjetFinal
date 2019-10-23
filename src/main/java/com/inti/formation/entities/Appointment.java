@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Appointment  implements IHasId<Integer> {
+public class Appointment implements IHasId<Integer> {
 	/**
 	 * 
 	 */
@@ -42,18 +42,17 @@ public class Appointment  implements IHasId<Integer> {
 	@Temporal(TemporalType.DATE)
 	private Date appointmentDate;
 	private int hourStart;
-	
+
 	@JsonIgnore
 	@Override
 	public Integer getId() {
-		// TODO Auto-generated method stub
 		return this.getIdAppointment();
 	}
+
 	@Override
 	public void setId(Integer i) {
-		// TODO Auto-generated method stub
 		this.setIdAppointment(i);
-		
+
 	}
 
 }
