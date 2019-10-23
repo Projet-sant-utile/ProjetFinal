@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @DiscriminatorValue("Office")
 public class Office extends Location  implements IHasId<Integer> {
 
@@ -28,6 +27,7 @@ public class Office extends Location  implements IHasId<Integer> {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "office")
 	private List<HealthProfessional> healthProfessionals;
 

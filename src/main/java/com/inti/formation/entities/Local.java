@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @DiscriminatorValue("Local")
 public class Local extends Location  implements IHasId<Integer> {
 
@@ -30,6 +29,7 @@ public class Local extends Location  implements IHasId<Integer> {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "local")
 	private CityHall cityHall;
 

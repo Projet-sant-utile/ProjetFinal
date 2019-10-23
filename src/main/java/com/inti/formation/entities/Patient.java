@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Patient extends User {
 	/**
 	* 
@@ -37,6 +36,7 @@ public class Patient extends User {
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "patient")
 	private List<Appointment> appointments;
 
