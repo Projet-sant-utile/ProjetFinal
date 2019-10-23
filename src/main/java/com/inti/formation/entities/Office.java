@@ -1,6 +1,5 @@
 package com.inti.formation.entities;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
@@ -8,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.inti.interfaces.IHasId;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @DiscriminatorValue("Office")
-public class Office extends Location  implements IHasId<Integer> {
+public class Office extends Location implements IHasId<Integer> {
 
 	/**
 	 * 
@@ -30,6 +28,11 @@ public class Office extends Location  implements IHasId<Integer> {
 	@JsonIgnore
 	@OneToMany(mappedBy = "office")
 	private List<HealthProfessional> healthProfessionals;
+
+	public Office(int idLocation, Address address, List<HealthProfessional> healthProfessionals) {
+		super(idLocation, address);
+		this.healthProfessionals = healthProfessionals;
+	}
 
 	@JsonIgnore
 	@Override

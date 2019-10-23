@@ -31,13 +31,13 @@ public class HealthProfessional extends User {
 
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Column(nullable = false)
 	private String firstname;
 
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
-	
+
 	private String speciality;
 
 	@Embedded
@@ -50,6 +50,19 @@ public class HealthProfessional extends User {
 	@JsonIgnore
 	@OneToMany(mappedBy = "healthProfessional")
 	private List<Appointment> appointments;
+
+	public HealthProfessional(int idUser, Address address, String phoneNumber, String email, String password,
+			String name, String firstname, Date birthday, String speciality, Availability availability, Office office,
+			List<Appointment> appointments) {
+		super(idUser, address, phoneNumber, email, password);
+		this.name = name;
+		this.firstname = firstname;
+		this.birthday = birthday;
+		this.speciality = speciality;
+		this.availability = availability;
+		this.office = office;
+		this.appointments = appointments;
+	}
 
 	@JsonIgnore
 	@Override

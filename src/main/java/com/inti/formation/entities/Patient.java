@@ -1,14 +1,11 @@
 package com.inti.formation.entities;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -21,6 +18,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+
 public class Patient extends User {
 	/**
 	* 
@@ -29,16 +28,25 @@ public class Patient extends User {
 
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Column(nullable = false)
 	private String firstname;
 
-	@Temporal(TemporalType.DATE)
-	private Date birthday;
-	
+	@Column(columnDefinition = "DATE")
+	private LocalDate birthday;
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "patient")
 	private List<Appointment> appointments;
+
+	public Patient(int idUser, Address address, String phoneNumber, String email, String password, String name,
+			String firstname, LocalDate birthday, List<Appointment> appointments) {
+		super(idUser, address, phoneNumber, email, password);
+		this.name = name;
+		this.firstname = firstname;
+		this.birthday = birthday;
+		this.appointments = appointments;
+	}
 
 	@JsonIgnore
 	@Override
@@ -49,7 +57,7 @@ public class Patient extends User {
 	@Override
 	public void setId(Integer i) {
 		this.setIdUser(i);
-		
+
 	}
 
 }

@@ -27,6 +27,11 @@ public class CityHall extends User {
 	@JoinColumn(name = "idLocation", unique = true)
 	private Local local;
 
+	public CityHall(int idUser, Address address, String phoneNumber, String email, String password, Local local) {
+		super(idUser, address, phoneNumber, email, password);
+		this.local = local;
+	}
+
 	@JsonIgnore
 	@Override
 	public Integer getId() {
