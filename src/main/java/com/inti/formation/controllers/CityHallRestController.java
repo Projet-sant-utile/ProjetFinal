@@ -1,6 +1,7 @@
 package com.inti.formation.controllers;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.inti.formation.entities.CityHall;
-import com.inti.formation.iServices.IGenericService;
 import com.inti.formation.services.CityHallService;
 
 @RestController
@@ -24,13 +25,13 @@ public class CityHallRestController {
 	private CityHallService service;
 	
 	@PostMapping("/add")
-	public CityHall add(@RequestBody CityHall p) {
-		return service.add(p);
+	public CityHall add(@RequestBody CityHall c) {
+		return service.add(c);
 	}
 	
 	@PutMapping("/update")
-	public CityHall update(@RequestBody CityHall p) {
-		return service.update(p);
+	public CityHall update(@RequestBody CityHall c) {
+		return service.update(c);
 	};
 	
 	@GetMapping("/get/{id}")

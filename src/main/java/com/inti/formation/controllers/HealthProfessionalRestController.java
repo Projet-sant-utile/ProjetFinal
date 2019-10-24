@@ -1,6 +1,7 @@
 package com.inti.formation.controllers;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.inti.formation.entities.HealthProfessional;
-import com.inti.formation.iServices.IGenericService;
 import com.inti.formation.services.HealthProfessionalService;
 
 @RestController
@@ -24,13 +25,13 @@ public class HealthProfessionalRestController {
 	private HealthProfessionalService service;
 	
 	@PostMapping("/add")
-	public HealthProfessional add(@RequestBody HealthProfessional p) {
-		return service.add(p);
+	public HealthProfessional add(@RequestBody HealthProfessional h) {
+		return service.add(h);
 	}
 	
 	@PutMapping("/update")
-	public HealthProfessional update(@RequestBody HealthProfessional p) {
-		return service.update(p);
+	public HealthProfessional update(@RequestBody HealthProfessional h) {
+		return service.update(h);
 	};
 	
 	@GetMapping("/get/{id}")
