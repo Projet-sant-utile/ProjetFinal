@@ -3,8 +3,6 @@ package com.inti.formation.repositories;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.time.LocalDate;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -29,8 +27,8 @@ public class IPatientRepositoryTest {
 	public void givenEntityRepository_whenSaving() {
 		LOGGER.info("-----------------Testing givenEntityRepository_whenSaving Method ---------------------");
 		System.out.println(iPatientRepository);
-		Patient addedPatient = iPatientRepository.save(
-				new Patient(1, null, "05550500550", "qsdqsqsd@qsdqs", "qsfdqs", "jean", "jean", LocalDate.now(), null));
+		Patient addedPatient = iPatientRepository
+				.save(new Patient(1, null, "05550500550", "qsdqsqsd@qsdqs", "qsfdqs", "jean", "jean", null, null));
 		LOGGER.info("----------------- Patient saved ---------------------");
 		LOGGER.info("----------------- Searching for Patient---------------------");
 		Patient foundPatient = iPatientRepository.getOne(addedPatient.getId());

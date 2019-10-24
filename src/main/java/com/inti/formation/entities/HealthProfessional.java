@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -36,6 +38,7 @@ public class HealthProfessional extends User {
 	private String firstname;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date birthday;
 
 	private String speciality;

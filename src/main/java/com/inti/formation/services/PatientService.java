@@ -5,10 +5,8 @@ import java.util.List;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import com.inti.formation.entities.Appointment;
 import com.inti.formation.entities.Patient;
 import com.inti.formation.iRepositories.IPatientRepository;
 import com.inti.formation.iServices.IPatientService;
@@ -18,7 +16,7 @@ public class PatientService extends GenericService<Patient, Integer> implements 
 
 	@Autowired
 	private IPatientRepository repo;
-	
+
 	@Override
 	public Patient add(Patient p) {
 		return repo.save(p);
@@ -30,13 +28,13 @@ public class PatientService extends GenericService<Patient, Integer> implements 
 	}
 
 	@Override
-	public void deleteById(Integer id_person) throws EntityNotFoundException {
-		repo.deleteById(id_person);
+	public void deleteById(Integer id_user) throws EntityNotFoundException {
+		repo.deleteById(id_user);
 	}
 
 	@Override
-	public Patient getById(Integer id_person) throws EntityNotFoundException {
-		return repo.getOne(id_person);
+	public Patient getById(Integer id_user) throws EntityNotFoundException {
+		return repo.getOne(id_user);
 	}
 
 	@Override
@@ -54,6 +52,4 @@ public class PatientService extends GenericService<Patient, Integer> implements 
 		return null;
 	}
 
-	
-	
 }
