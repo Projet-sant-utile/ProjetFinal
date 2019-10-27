@@ -1,6 +1,7 @@
 package com.inti.formation.controllers;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,10 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.inti.formation.entities.Appointment;
-import com.inti.formation.iServices.IGenericService;
 import com.inti.formation.services.AppointmentService;
-import com.inti.formation.services.GenericService;
 
 @RestController
 @RequestMapping("/apiAppointment")
@@ -25,13 +25,13 @@ public class AppointmentRestController {
 	private AppointmentService service;
 	
 	@PostMapping("/add")
-	public Appointment add(@RequestBody Appointment p) {
-		return service.add(p);
+	public Appointment add(@RequestBody Appointment a) {
+		return service.add(a);
 	}
 	
 	@PutMapping("/update")
-	public Appointment update(@RequestBody Appointment p) {
-		return service.update(p);
+	public Appointment update(@RequestBody Appointment a) {
+		return service.update(a);
 	};
 	
 	@GetMapping("/get/{id}")

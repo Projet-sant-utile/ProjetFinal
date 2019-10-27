@@ -1,16 +1,11 @@
 package com.inti.formation.entities;
 
-import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.inti.interfaces.IHasId;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @DiscriminatorValue("Local")
-public class Local extends Location  implements IHasId<Integer> {
+public class Local extends Location implements IHasId<Integer> {
 
 	/**
 	 * 
@@ -36,6 +31,12 @@ public class Local extends Location  implements IHasId<Integer> {
 	@Embedded
 	private Availability availability;
 
+	public Local(int idLocation, Address address, CityHall cityHall, Availability availability) {
+		super(idLocation, address);
+		this.cityHall = cityHall;
+		this.availability = availability;
+	}
+
 	@JsonIgnore
 	@Override
 	public Integer getId() {
@@ -45,7 +46,7 @@ public class Local extends Location  implements IHasId<Integer> {
 	@Override
 	public void setId(Integer i) {
 		this.setIdLocation(i);
-		
+
 	}
 
 }

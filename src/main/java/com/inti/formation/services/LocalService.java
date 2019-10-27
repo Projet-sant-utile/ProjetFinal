@@ -8,8 +8,8 @@ import com.inti.formation.entities.Local;
 import com.inti.formation.iServices.ILocalService;
 
 @Service
-public class LocalService extends GenericService<Local, Integer> implements ILocalService{
-
+public class LocalService extends GenericService<Local, Integer> implements ILocalService {
+	
 	@Autowired
 	public void setGenericRepository(JpaRepository<Local, Integer> repo) {
 		this.genericRepository = repo;
