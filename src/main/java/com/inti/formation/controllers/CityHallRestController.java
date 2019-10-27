@@ -44,6 +44,12 @@ public class CityHallRestController {
 		return service.findAll();
 	};
 	
+	@GetMapping("/findByEmail/{email}")
+	public List<CityHall> findByEmail(@PathVariable String email){
+		System.out.println(email);
+		return service.findByEmail(email);
+	};
+	
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable int id) {
 		service.deleteById(id);

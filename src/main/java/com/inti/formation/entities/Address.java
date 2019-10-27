@@ -1,5 +1,6 @@
 package com.inti.formation.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -20,7 +21,9 @@ public class Address {
 	private String city;
 	private String zipCode;
 	private String country;
+	@Column(nullable = true)
 	private double lat;
+	@Column(nullable = true)
 	private double lon;
 	
 }

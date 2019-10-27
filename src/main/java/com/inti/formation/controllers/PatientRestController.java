@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.inti.formation.entities.Patient;
-import com.inti.formation.iServices.IPatientService;
 import com.inti.formation.services.PatientService;
 
 @RestController
@@ -41,6 +41,12 @@ public class PatientRestController {
 	@GetMapping("/Patients")
 	public List<Patient> findAll(){
 		return service.findAll();
+	};
+	
+	@GetMapping("/findByEmail/{email}")
+	public List<Patient> findByEmail(@PathVariable String email){
+		System.out.println(email);
+		return service.findByEmail(email);
 	};
 	
 	@DeleteMapping("/delete/{id}")
