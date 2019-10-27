@@ -45,7 +45,7 @@ public class CityHallRestController {
 	};
 	
 	@GetMapping("/findByEmail/{email}")
-	public List<CityHall> findByEmail(@PathVariable String email){
+	public CityHall findByEmail(@PathVariable String email){
 		System.out.println(email);
 		return service.findByEmail(email);
 	};

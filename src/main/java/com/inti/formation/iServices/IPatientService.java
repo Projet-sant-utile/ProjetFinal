@@ -1,6 +1,5 @@
 package com.inti.formation.iServices;
 
-import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -16,6 +15,6 @@ public interface IPatientService extends IGenericService<Patient, Integer> {
 	public Patient findBySpeciality(int id_person, int id_healthProfessional) 
 			throws EntityNotFoundException;
 	
-	public List<Patient> findByEmail(String email) throws EntityNotFoundException;
+	public Patient findByEmail(String email) throws EntityNotFoundException;
 
 }

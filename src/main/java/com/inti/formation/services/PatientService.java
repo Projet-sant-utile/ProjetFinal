@@ -1,6 +1,5 @@
 package com.inti.formation.services;
 
-import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -34,7 +33,7 @@ public class PatientService extends GenericService<Patient, Integer> implements 
 	}
 
 	@Override
-	public List<Patient> findByEmail(String email) throws EntityNotFoundException {
+	public Patient findByEmail(String email) throws EntityNotFoundException {
 		return PRepo.findByEmail(email);
 	}
 

@@ -45,7 +45,7 @@ public class HealthProfessionalRestController {
 	};
 	
 	@GetMapping("/findByEmail/{email}")
-	public List<HealthProfessional> findByEmail(@PathVariable String email){
+	public HealthProfessional findByEmail(@PathVariable String email){
 		System.out.println(email);
 		return service.findByEmail(email);
 	};

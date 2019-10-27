@@ -1,6 +1,5 @@
 package com.inti.formation.services;
 
-import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -24,7 +23,7 @@ public class CityHallService extends GenericService<CityHall, Integer> implement
 	}
 
 	@Override
-	public List<CityHall> findByEmail(String email) throws EntityNotFoundException {
+	public CityHall findByEmail(String email) throws EntityNotFoundException {
 		return ChRepo.findByEmail(email);
 	}
 	

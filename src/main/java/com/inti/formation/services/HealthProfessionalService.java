@@ -1,6 +1,5 @@
 package com.inti.formation.services;
 
-import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -25,7 +24,7 @@ public class HealthProfessionalService extends GenericService<HealthProfessional
 	}
 
 	@Override
-	public List<HealthProfessional> findByEmail(String email) throws EntityNotFoundException {
+	public HealthProfessional findByEmail(String email) throws EntityNotFoundException {
 		return HpRepo.findByEmail(email);
 	}
 	
